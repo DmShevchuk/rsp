@@ -1,38 +1,125 @@
+/* src/App.css */
+
+/* Основные стили */
 .App {
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  height: 100vh; /* Устанавливаем высоту для полного экрана */
+  margin: 0; /* Убираем внешние отступы */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Стили для фона */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff6b6b, #f06595, #fc6c85, #d9a7c7);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  z-index: -1; /* Поместите фон под все остальные элементы */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Анимация градиента */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Стили для игрового поля */
+.board {
+  position: relative;
+  width: 480px;
+  height: 480px;
+  margin: 0 auto; /* Центрирование игрового поля */
+  border: 2px solid #333; /* Добавим границу для видимости игрового поля */
+  background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон для видимости */
+  z-index: 1; /* Поверх фонового градиента */
+}
+
+/* Стили для кнопки перезапуска */
+.restart-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+.restart-button:hover {
+  background-color: #218838;
+}
+
+/* Стили для модального окна */
+.game-over-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Высокий z-index для отображения поверх всего */
+}
+
+.game-over-modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.modal-message {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.modal-button {
+  background-color: #007bff;
   color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal-button:hover {
+  background-color: #0056b3;
 }

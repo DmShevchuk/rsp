@@ -41,8 +41,8 @@ const App = () => {
           x += dx;
           y += dy;
 
-          if (x <= 0 || x >= 480) dx *= -1;
-          if (y <= 0 || y >= 480) dy *= -1;
+          if (x <= 0 || x >= 450) dx *= -1;
+          if (y <= 0 || y >= 450) dy *= -1;
 
           return { ...item, x, y, dx, dy };
         })

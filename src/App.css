@@ -16,9 +16,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, #ff6b6b, #f06595, #fc6c85, #d9a7c7);
+  background: linear-gradient(45deg, #3191f5, #ff7eb2, #4fff80, #ff0000);
   background-size: 400% 400%;
-  animation: gradientAnimation 15s ease infinite;
+  animation: gradientAnimation 2s infinite;
   z-index: -1; /* Поместите фон под все остальные элементы */
 }
 
